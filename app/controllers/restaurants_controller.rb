@@ -7,7 +7,7 @@ class RestaurantsController < ApplicationController
 
     #GET/restaurants/:id
     def show
-        restaurant = Restaurant.find_by(id: params[:id])
+        restaurant = find_by
         if restaurant
             render json: restaurant
         else
@@ -24,7 +24,7 @@ class RestaurantsController < ApplicationController
 
     #destroy/restaurant/:id
     def destroy
-        restaurant = Restaurant.find_by(id: params[:id])
+        restaurant = find_by
         if restaurant
             restaurant.destroy
             head :no_content
@@ -35,7 +35,7 @@ class RestaurantsController < ApplicationController
 
     #update/restaurant/:id
     def update
-        restaurant = Restaurant.find_by(id: params[:id])
+        restaurant = find_by
         if restaurant
             restaurant.update(restaurant_params)
             render json: restaurant, status: :accepted
@@ -49,5 +49,9 @@ class RestaurantsController < ApplicationController
 
     def restaurant_params
         params.permit(:name, :address)
+    end
+
+    def find_by
+    Restaurant.find_by(id: params[:id])
     end
 end
