@@ -1,4 +1,3 @@
-     
 Restaurant.create(name:"Kenpisky",address:"Namanga road")
 Restaurant.create(name:"Sarova Stanely",address:"Moi_Avenue road")
 Restaurant.create(name:"Hilton Heights",address:"Juja road")
